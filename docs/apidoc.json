@@ -1,0 +1,10 @@
+{
+    "name": "WebJox-CMS",
+    "version": "0.1.0",
+    "description": "Welcome to the club buddy!", 
+    "title": "Документация API WebJox-CMS",
+    "template": { 
+        "withCompare": true, 
+        "withGenerator": true 
+    }
+}
