@@ -20,13 +20,12 @@
  * @apiParam {Boolean} enabled Активный ли товар
  * @apiParam {String} slug Slug товара required
  * @apiParam {String} sku Артикул товара
- * @apiParam {Array} related_products_ids Массив похожих товаров 
+ * @apiParam {Array} related_products_ids Массив похожих товаров
  * @apiParam {Number} price Цена товара
  * @apiParam {Number} stock_price Цена товара со склада
  * @apiParam {Number} quantity_inc Число инкремента товара при добавлении
  * @apiParam {Number} quantity_min Минимальное количество товара
  * @apiParam {Number} weight Вес товара
- * @apiParam {Number} stock_quantity Количество товара со склада
  * @apiParam {Array} shops Массив объектов, содержит название магазина и количества товара в нём
  * @apiParam {Number} position Позиция товара
  * @apiParam {ObjectId} categoryId Id категории
@@ -34,10 +33,10 @@
  * @apiParam {Array} images Массив объектов
  * @apiParam {Array} files Массив объектов
  * @apiParam {String} video url видосика
- * @apiParam {Array} options Массив объектов. Опции товара, характеристики.    
+ * @apiParam {Array} options Массив объектов. Опции товара, характеристики.
  * @apiParam {String} manufacturer Производитель
  * @apiParam {Number} package_quantity Количества товара в упаковке
-*/
+ */
 
 /**
  * @api {get} /api/v1/products/:id Получение товара по id
@@ -60,13 +59,12 @@
  * @apiParam {Boolean} enabled Активный ли товар
  * @apiParam {String} slug Slug товара required
  * @apiParam {String} sku Артикул товара
- * @apiParam {Array} related_products_ids Массив похожих товаров 
+ * @apiParam {Array} related_products_ids Массив похожих товаров
  * @apiParam {Number} price Цена товара
  * @apiParam {Number} stock_price Цена товара со склада
  * @apiParam {Number} quantity_inc Число инкремента товара при добавлении
  * @apiParam {Number} quantity_min Минимальное количество товара
  * @apiParam {Number} weight Вес товара
- * @apiParam {Number} stock_quantity Количество товара со склада
  * @apiParam {Array} shops Массив объектов, содержит название магазина и количества товара в нём
  * @apiParam {Number} position Позиция товара
  * @apiParam {ObjectId} categoryId Id категории
@@ -74,10 +72,10 @@
  * @apiParam {Array} images Массив объектов
  * @apiParam {Array} files Массив объектов
  * @apiParam {String} video url видосика
- * @apiParam {Array} options Массив объектов. Опции товара, характеристики.    
+ * @apiParam {Array} options Массив объектов. Опции товара, характеристики.
  * @apiParam {String} manufacturer Производитель
  * @apiParam {Number} package_quantity Количества товара в упаковке
-*/
+ */
 
 /**
  * @api {delete} /api/v1/products/:id удаление товара по id
@@ -92,7 +90,6 @@
  * @apiGroup Products
  * @apiVersion 0.1.0
  */
-
 
 /**
  * @api {get} /api/v1/products/:id/slug Получение slug товара
@@ -113,7 +110,7 @@
  * @apiName addImageProduct
  * @apiGroup Products
  * @apiVersion 0.1.0
-*/
+ */
 
 /**
  * @api {put} /api/v1/products/:id/images/:imageId Изменение изображения товара
@@ -199,7 +196,7 @@
  * @apiParams {String} control Контроллер товара для инпута, например 'select'
  * @apiParams {Boolean} required Строгий ли выбор этой опции
  * @apiParams {Number} position Позиция опции
- * @apiParams {Array} value Значения опции  
+ * @apiParams {Array} value Значения опции
  */
 
 /**
@@ -211,7 +208,7 @@
  * @apiParams {String} control Контроллер товара для инпута, например 'select'
  * @apiParams {Boolean} required Строгий ли выбор этой опции
  * @apiParams {Number} position Позиция опции
- * @apiParams {Array} value Значения опции  
+ * @apiParams {Array} value Значения опции
  */
 
 /**
@@ -258,7 +255,6 @@
  * @apiVersion 0.1.0
  */
 
-
 /**
  * @api {get} /api/v1/products/:id/variants Получить варианты товара
  * @apiName getProductVariants
@@ -280,9 +276,8 @@
  * @apiVersion 0.1.0
  * @apiParams {String} sku Артикул
  * @apiParams {Number} price Цена товара
- * @apiParams {Number} stock_quantity Товара на складе
  * @apiParams {Number} weight Вес товара
- * @apiParams {Array} options опции товара   
+ * @apiParams {Array} options опции товара
  */
 
 /**
@@ -292,9 +287,8 @@
  * @apiVersion 0.1.0
  * @apiParams {String} sku Артикул
  * @apiParams {Number} price Цена товара
- * @apiParams {Number} stock_quantity Товара на складе
  * @apiParams {Number} weight Вес товара
- * @apiParams {Array} options опции товара   
+ * @apiParams {Array} options опции товара
  */
 
 /**

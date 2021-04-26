@@ -1,106 +1,123 @@
 import { Schema } from 'mongoose';
 
-const customerSchema = new Schema({
+const customerSchema = new Schema(
+  {
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true
+      type: String,
+      required: true,
+      unique: true,
+      lowercase: true,
     },
     entity: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
     },
     wholesaler: {
-        type: Boolean,
-        default: false
+      type: Boolean,
+      default: false,
+    },
+    wholesaler_settings: {
+      type: Object,
+      default: {
+        organizationName: '',
+        itn: '',
+        bic: '',
+        correspondingAccount: '',
+        psrn: '',
+        bankName: '',
+        currentAccount: '',
+        legalAddress: '',
+        actualAddress: '',
+      },
     },
     password: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     total_spent: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     orders_count: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
-    loved_items: {
-        type: Array,
-        default: []
+    featured_products: {
+      type: Array,
+      default: [],
     },
     note: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     mobile: {
-        type: String,
-        default: '+70000000000'
+      type: String,
+      default: '+70000000000',
     },
     full_name: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     first_name: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     last_name: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     third_name: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     gender: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     group_id: {
-        type: Schema.Types.ObjectId,
-        default: null
+      type: Schema.Types.ObjectId,
+      default: null,
     },
     tags: {
-        type: Array,
-        default: []
+      type: Array,
+      default: [],
     },
     social_accounts: {
-        type: Array,
-        default: []
+      type: Array,
+      default: [],
     },
     birthdate: {
-        type: Date,
-        default: null
+      type: Date,
+      default: null,
     },
     shipping_address: {
-        type: Object,
-        default: {
-            address: "",
-            city: "",
-            state: "",
-            country: "",
-            postal_code: ""
-        }
+      type: Object,
+      default: {
+        address: '',
+        city: '',
+        state: '',
+        country: '',
+        postal_code: '',
+      },
     },
     browser: {
-        type: Object,
-        default: {}
+      type: Object,
+      default: {},
     },
     scopes: {
-        type: Array,
-        default: []
+      type: Array,
+      default: [],
     },
     year_spent: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     discount: {
-        type: Number,
-        default: 0
-    }
-}, {timestamps: true, versionKey: false})
+      type: Number,
+      default: 0,
+    },
+  },
+  { timestamps: true, versionKey: false },
+);
 
 export default customerSchema;

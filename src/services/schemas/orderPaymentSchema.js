@@ -1,34 +1,25 @@
 import { Schema } from 'mongoose';
 
-const orderPaymentSchema = new Schema({
+const paymentGatewaySchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        default: ''
-    },
-    position: {
-        type: Number
-    },
-    enabled: {
-        type: Boolean,
-        default: false
-    },
-    conditions: {
-        type: Object,
-        default: {
-            countries: [],
-            shipping_method_ids: [],
-            subtotal_min: 0,
-            subtotal_max: 0
-        }
+      type: String,
+      default: 'Default gateway',
     },
     gateway: {
-        type: String,
-        default: ''
-    }
-}, {timestamps: true, versionKey: false})
+      type: Object,
+      default: {},
+    },
+    online_payment: {
+      type: Boolean,
+      default: false,
+    },
+    enabled: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  { versionKey: false },
+);
 
-export default orderPaymentSchema;
+export default paymentGatewaySchema;

@@ -1,42 +1,34 @@
 import { Schema } from 'mongoose';
 
-const orderShippingSchema = new Schema({
+const orderShippingSchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
+      type: String,
+      default: 'Default shipping method',
     },
     description: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     position: {
-        type: Number
+      type: Number,
+      default: 0,
     },
     enabled: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: false,
+    },
+    delivery_time: {
+      type: String,
+      default: '',
     },
     price: {
-        type: Number,
-        default: 0,
-        min: 0
+      type: Number,
+      default: 0,
+      min: 0,
     },
-    conditions: {
-        type: Object,
-        default: {
-            countries: [],
-            states: [],
-            cities: [],
-            subtotal_min: 0,
-            subtotal_max: 0,
-            weight_total_min: 0,
-            weight_total_max: 0
-        }
-    },
-    fields: {
-        type: Array,
-        default: []
-    }
-}, {timestamps: true, versionKey: false})
+  },
+  { timestamps: true, versionKey: false },
+);
 
 export default orderShippingSchema;

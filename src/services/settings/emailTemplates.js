@@ -1,21 +1,23 @@
 import models from '../models';
 
-const emailTemplateModel = models.emailTemplatesModel;
+const emailTemplateModel = models.EmailTemplatesModel;
 
 class EmailTemplatesApi {
-    constructor() {}
+  async getEmailTemplate(name) {
+    const result = await emailTemplateModel.findOne({ name });
+    return result;
+  }
 
-    async getEmailTemplate(name) {
-        return await emailTemplateModel.findOne({name: name});
-    }
+  async addEmailTemplate(data) {
+    const result = await emailTemplateModel.create(data);
+    return result;
+  }
 
-    async addEmailTemplate(data) {
-        return await emailTemplateModel.create(data);
-    }
-
-    async updateEmailTemplate(name, data) {
-        return await emailTemplateModel.updateOne({name: name}, data, {upsert: true})
-    }
+  async updateEmailTemplate(name, data) {
+    await emailTemplateModel.updateOne({ name }, data, { upsert: true });
+    const result = await this.getEmailTemplate(name);
+    return result;
+  }
 }
 
-export default new EmailTemplatesApi()
+export default new EmailTemplatesApi();

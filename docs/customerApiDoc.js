@@ -34,6 +34,7 @@
  * @apiParam {Array} scopes
  * @apiParam {Number} year_spent
  * @apiParam {Number} discount
+ * @apiParam {Object} wholesaler_settings organizationName, itn, bic, correspondingAccount, psrn, bankName, currentAccount, legalAddress, actualAddress
  * @apiSuccess {Object} customer
  */
 
@@ -56,7 +57,7 @@
  * @apiParam {String} password
  * @apiParam {Number} total_spent
  * @apiParam {Number} orders_count
- * @apiParam {Array} loved_items
+ * @apiParam {Array} featured_products
  * @apiParam {String} note
  * @apiParam {String} mobile
  * @apiParam {String} full_name
@@ -73,6 +74,7 @@
  * @apiParam {Array} scopes
  * @apiParam {Number} year_spent
  * @apiParam {Number} discount
+ * @apiParam {Object} wholesaler_settings organizationName, itn, bic, correspondingAccount, psrn, bankName, currentAccount, legalAddress, actualAddress
  * @apiSuccess {Object} customer
  */
 

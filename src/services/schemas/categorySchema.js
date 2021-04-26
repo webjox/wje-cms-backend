@@ -1,46 +1,49 @@
 import { Schema } from 'mongoose';
 
-const categorySchema = new Schema({
+const categorySchema = new Schema(
+  {
     name: {
-        type: String,
-        required: true
+      type: String,
+      required: true,
     },
     description: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     meta_description: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     meta_title: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     image: {
-        type: Object,
-        default: {}
+      type: Object,
+      default: {},
     },
     enabled: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: true,
     },
     sort: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     parent_id: {
-        type: Schema.Types.ObjectId,
-        default: null
+      type: Schema.Types.ObjectId,
+      default: null,
     },
     position: {
-        type: Number,
-        default: 0
+      type: Number,
+      default: 0,
     },
     slug: {
-        type: String,
-        default: ''
-    }
-}, {timestamps: true, versionKey: false})
+      type: String,
+      default: '',
+    },
+  },
+  { timestamps: true, versionKey: false },
+);
 
 export default categorySchema;

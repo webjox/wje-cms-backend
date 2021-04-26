@@ -1,0 +1,40 @@
+{
+    "data": [
+        {
+            "name": "хризантема",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "1000 хризантем",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "пион из шмелей",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "цветной пион",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "пальма",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "мерцания",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "спираль",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "волшебные рывки",
+            "icon": "defaultIcon.jpg"
+        },
+        {
+            "name": "листья",
+            "icon": "defaultIcon.jpg"
+        }
+    ]
+}

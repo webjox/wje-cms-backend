@@ -1,26 +1,29 @@
-import {Schema} from 'mongoose';
+import { Schema } from 'mongoose';
 
-const webhookSchema = new Schema({
+const webhookSchema = new Schema(
+  {
     description: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     url: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     secret: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     enabled: {
-        type: Boolean,
-        default: true
+      type: Boolean,
+      default: true,
     },
     events: {
-        type: Array,
-        default: []
-    }
-}, {timestamps: true, versionKey: false})
+      type: Array,
+      default: [],
+    },
+  },
+  { timestamps: true, versionKey: false },
+);
 
 export default webhookSchema;

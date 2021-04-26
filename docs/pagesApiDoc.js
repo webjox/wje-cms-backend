@@ -39,8 +39,34 @@
  */
 
 /**
- * @api {delete} /api/v1/pages/:pageId Создание страницы
- * @apiName Webjox-сms
+ * @api {delete} /api/v1/pages/:pageId Удаление страницы
+ * @apiName deletePage
  * @apiGroup Pages-Api
  * @apiVersion 0.1.0
+ */
+
+/**
+ * @api {post} /api/v1/pages/:pageId/image Добавить обложку страницы
+ * @apiName uploadPageImage
+ * @apiGroup Pages-Api
+ * @apiVersion 0.1.0
+ * @apiParam {Object} image
+ * @apiSuccess {Object} page Updated Page
+ */
+
+/**
+ * @api {put} /api/v1/pages/:pageId/image Обновить обложку страницы
+ * @apiName updatePageImage
+ * @apiGroup Pages-Api
+ * @apiVersion 0.1.0
+ * @apiParam {String} alt
+ * @apiSuccess {Object} page Updated Page
+ */
+
+/**
+ * @api {delete} /api/v1/pages/:pageId/image Удалить обложку страницы
+ * @apiName deletePageImage
+ * @apiGroup Pages-Api
+ * @apiVersion 0.1.0
+ * @apiSuccess {Object} page Updated Page
  */

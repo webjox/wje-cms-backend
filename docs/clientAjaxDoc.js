@@ -15,6 +15,22 @@
  */
 
 /**
+ * @api {get} /ajax/products/:id/images Получение изображений товара по id
+ * @apiName getProductImages
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} Images
+ */
+
+/**
+ * @api {get} /ajax/products/:id/files Получение файлов товара по id
+ * @apiName getProductFiles
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} Files
+ */
+
+/**
  * @api {get} /ajax/products/tags Получение тэгов продуктов
  * @apiName getProductsTags
  * @apiGroup Client Routes Products
@@ -28,6 +44,46 @@
  * @apiGroup Client Routes Products
  * @apiVersion 0.1.0
  * @apiSuccess {Object} category
+ */
+
+/**
+ * @api {get} /ajax/products/effects Получение эффектов продуктов
+ * @apiName getProductEffects
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} effects
+ */
+
+/**
+ * @api {get} /ajax/products/manufacturers Получение эффектов продуктов
+ * @apiName getProductManufacturers
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} manufacturers
+ */
+
+/**
+ * @api {get} /ajax/payment_methods Получение методов оплаты
+ * @apiName getPaymentMethods
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} payment_methods
+ */
+
+/**
+ * @api {get} /ajax/shipping_methods Получение методов доставки
+ * @apiName getShippingMethods
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} shipping_methods
+ */
+
+/**
+ * @api {get} /ajax/shops Получение магазинов
+ * @apiName getProductShops
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Array} shops
  */
 
 /**
@@ -47,7 +103,15 @@
  */
 
 /**
- * @api {get} /ajax/cart Получение корзины клиента
+ * @api {get} /ajax/categories/:id/image Получение изображения категории по id
+ * @apiName getCategoryImage
+ * @apiGroup Client Routes Products
+ * @apiVersion 0.1.0
+ * @apiSuccess {Object} Image
+ */
+
+/**
+ * @api {get} /ajax/cart Получение инфы о заказе клиента
  * @apiName getCart
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
@@ -107,12 +171,51 @@
  * @apiGroup Client Routes Customer
  * @apiVersion 0.1.0
  * @apiParam {String} token
- * @apiParam {String} first_name
- * @apiParam {String} last_name
- * @apiParam {String} email
- * @apiParam {String} password
- * @apiParam {Object} shipping_address {address, city, state, country, postal_code}
- * @apiParam {Array} loved_items [productId]
+ * @apiParam {String} [first_name]
+ * @apiParam {String} [last_name]
+ * @apiParam {String} [third_name]
+ * @apiParam {String} [full_name]
+ * @apiParam {String} [email]
+ * @apiParam {String} [password]
+ * @apiParam {Object} [shipping_address] {address, city, state, country, postal_code}
+ * @apiParam {Array} [featured_products] productId
+ * @apiParam {Object} [birthdate] (date)
+ * @apiParam {Boolean} [entity]
+ * @apiParam {Boolean} [wholesaler]
+ * @apiParam {String} [mobile]
+ * @apiParam {String} [gender]
+ * @apiParam {Array} [social_accounts]
+ * @apiParam {Number} [discount]
+ * @apiParam {Object} [wholesaler_settings] organizationName, itn, bic, correspondingAccount, psrn, bankName, currentAccount, legalAddress, actualAddress
+ * @apiSuccess {Object} userData
+ */
+
+/**
+ * @api {post} /ajax/cart/items Получить товары из заказа
+ * @apiName getItemsToCart
+ * @apiGroup Client Routes Cart
+ * @apiVersion 0.1.0
+ * @apiHeader {Cookies} order_id
+ * @apiSuccessExample {json} cartItems:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          [{"product_image": ["60756674fee13463a4496420", "60722674fee13e63a249s420"],
+ *          "product_id": "22366524fsd132363a521650",
+ *          "variant_id": "113665242ds152361a621235",
+ *          "quantity": "10",
+ *          "custom_price": null,
+ *          "custom_note": "example note",
+ *          "sku": "AS-22",
+ *          "name": "Some product",
+ *          "variant_name": "Black product",
+ *          "price": "200",
+ *          "stock_price": "100",
+ *          "tax_class": null,
+ *          "weight": 0,
+ *          "discount_total": "10",
+ *          "price_total": "1800",
+ *          "stock_price_total": "900"}]
+ *      }
  */
 
 /**
@@ -122,7 +225,26 @@
  * @apiVersion 0.1.0
  * @apiHeader {Cookies} order_id
  * @apiParam {Object} item {product_image, product_id, variant_id, quantity, custom_price, custom_note, sku, name, variant_name, price, tax_class, weight, discount_total, price_total}
- * @apiSuccess {Object} cartData
+ * @apiSuccessExample {json} cartItems:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          [{"product_image": ["60756674fee13463a4496420", "60722674fee13e63a249s420"],
+ *          "product_id": "22366524fsd132363a521650",
+ *          "variant_id": "113665242ds152361a621235",
+ *          "quantity": "10",
+ *          "custom_price": null,
+ *          "custom_note": "example note",
+ *          "sku": "AS-22",
+ *          "name": "Some product",
+ *          "variant_name": "Black product",
+ *          "price": "200",
+ *          "stock_price": "100",
+ *          "tax_class": null,
+ *          "weight": 0,
+ *          "discount_total": "10",
+ *          "price_total": "1800",
+ *          "stock_price_total": "900"}]
+ *      }
  */
 
 /**
@@ -131,7 +253,11 @@
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
  * @apiHeader {Cookies} order_id
- * @apiSuccess {Object} cartData
+ * @apiSuccessExample {json} cartItems:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          []
+ *      }
  */
 
 /**
@@ -139,9 +265,28 @@
  * @apiName changeItemInCart
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
- * @apiHeader {Cookies} order_id 
+ * @apiHeader {Cookies} order_id
  * @apiParam {Object} item {product_image, product_id, variant_id, quantity, custom_price, custom_note, sku, name, variant_name, price, tax_class, weight, discount_total, price_total}
- * @apiSuccess {Object} cartData
+ * @apiSuccessExample {json} cartItems:
+ *     HTTP/1.1 200 OK
+ *     {
+ *          [{"product_image": ["60756674fee13463a4496420", "60722674fee13e63a249s420"],
+ *          "product_id": "22366524fsd132363a521650",
+ *          "variant_id": "113665242ds152361a621235",
+ *          "quantity": "10",
+ *          "custom_price": null,
+ *          "custom_note": "example note",
+ *          "sku": "AS-22",
+ *          "name": "Some product",
+ *          "variant_name": "Black product",
+ *          "price": "200",
+ *          "stock_price": "100",
+ *          "tax_class": null,
+ *          "weight": 0,
+ *          "discount_total": "10",
+ *          "price_total": "1800",
+ *          "stock_price_total": "900"}]
+ *      }
  */
 
 /**
@@ -149,7 +294,8 @@
  * @apiName checkoutOrder
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
- * @apiHeader {Cookies} order_id 
+ * @apiHeader {Cookies} order_id
+ * @apiParam {String} shop_id Id магазина с которого происходит самовывоз/доставка.
  * @apiSuccess {Object} cartData
  */
 
@@ -158,7 +304,7 @@
  * @apiName updateOrder
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
- * @apiHeader {Cookies} order_id 
+ * @apiHeader {Cookies} order_id
  * @apiParam {Object} shipping_address {address, city, state, country, postal_code}
  * @apiParam {String} shipping_status
  * @apiParam {Array} items
@@ -202,7 +348,7 @@
  * @apiName chargeOrder
  * @apiGroup Client Routes Cart
  * @apiVersion 0.1.0
- * @apiHeader {Cookies} order_id 
+ * @apiHeader {Cookies} order_id
  * @apiSuccess {Object} chargeResponse
  */
 
@@ -237,7 +383,7 @@
  * @apiGroup Client Routes payment
  * @apiVersion 0.1.0
  * @apiHeader {Cookies} order_id
- * @apiSuccess {Array} methods 
+ * @apiSuccess {Array} methods
  */
 
 /**
@@ -246,7 +392,7 @@
  * @apiGroup Client Routes shipping
  * @apiVersion 0.1.0
  * @apiHeader {Cookies} order_id
- * @apiSuccess {Array} methods 
+ * @apiSuccess {Array} methods
  */
 
 /**

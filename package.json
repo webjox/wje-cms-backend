@@ -1,14 +1,18 @@
 {
   "name": "webjox-cms",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Ecommerce nodejs platform for webjox projects",
   "main": "http-server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --detectOpenHandles",
     "start:dev": "cross-env NODE_ENV=development nodemon --require @babel/register ./bin/http-server.js",
     "start:debug": "cross-env NODE_ENV=development nodemon --require @babel/register --inspect ./bin/http-server.js",
+    "start": "cross-env NODE_ENV=production node ./bin/http-server.js",
+    "lint": "eslint --debug src/",
+    "lint:write": "eslint --debug src/ --fix",
+    "prettier": "prettier  --write src/***/**/*.js src/**/*.js bin/*.js __tests__/*.spec.js",
     "setup": "cross-env node --require @babel/register ./setup.js",
-    "build": "babel --source-maps --out-dir ./dist/ --ignore node_modules,test.js,spec.js,coverage,dist,.nyc_output,src/frontend,client,docs ."
+    "build": "babel --source-maps --out-dir ./dist/ --ignore node_modules,test.js,spec.js,coverage,dist,.nyc_output,src/frontend,client,docs,__tests__,jest.config.json,jest-mongodb-config.js ."
   },
   "keywords": [
     "ecommerce",
@@ -20,26 +24,32 @@
   "author": "Alkes <alkesproject@gmail.com>",
   "license": "ISC",
   "dependencies": {
+    "@koa/multer": "^3.0.0",
     "bcrypt": "^5.0.0",
     "colors": "^1.4.0",
     "cross-env": "^7.0.3",
     "fast-xml-parser": "^3.19.0",
     "formidable": "^1.2.2",
     "fs-extra": "^9.1.0",
+    "gost-transliteration": "^0.1.2",
     "handlebars": "^4.7.7",
     "he": "^1.2.0",
     "http-shutdown": "^1.2.2",
     "jsonwebtoken": "^8.5.1",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
+    "koa-bodyparser": "^4.3.0",
     "koa-cors": "^0.0.16",
     "koa-helmet": "^6.0.0",
     "koa-jwt": "^4.0.0",
+    "koa-multer": "^1.0.2",
     "koa-router": "^10.0.0",
     "koa-static": "^5.0.0",
+    "koa2-formidable": "^1.0.2",
     "lru-cache": "^6.0.0",
     "moment": "^2.29.1",
     "mongoose": "^5.11.15",
+    "multer": "^1.4.2",
     "nodemailer": "^6.4.18",
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^2.0.7",
@@ -48,14 +58,37 @@
     "twconf": "^0.7.1",
     "ua-parser-js": "^0.7.24",
     "winston": "^3.3.3",
-    "ws": "^7.4.3"
+    "ws": "^7.4.3",
+    "xml2js": "^0.4.23"
   },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.16",
     "@babel/register": "^7.12.13",
+    "@shelf/jest-mongodb": "^1.2.3",
     "apidoc": "^0.27.1",
-    "babel-cli": "^6.26.0"
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.24.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.3.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "husky": "^6.0.0",
+    "jest": "^26.6.3",
+    "lint-staged": "^10.5.4",
+    "prettier": "2.2.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "pre-push": "YOUR_COMMAND_HERE"
+    }
+  },
+  "lint-staged": {
+    "*.(js|jsx)": [
+      "npm run lint:write",
+      "git add"
+    ]
   }
 }

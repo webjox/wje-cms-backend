@@ -1,31 +1,34 @@
-import {Schema} from 'mongoose';
+import { Schema } from 'mongoose';
 
-const emailSettingsSchema = new Schema({
+const emailSettingsSchema = new Schema(
+  {
     host: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     port: {
-        type: Number,
-        default: 0,
-        min: 0
+      type: Number,
+      default: 0,
+      min: 0,
     },
     user: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     pass: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     from_name: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     from_address: {
-        type: String,
-        default: ''
-    }
-}, {versionKey: false})
+      type: String,
+      default: '',
+    },
+  },
+  { versionKey: false },
+);
 
 export default emailSettingsSchema;

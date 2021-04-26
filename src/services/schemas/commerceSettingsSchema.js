@@ -1,18 +1,21 @@
 import { Schema } from 'mongoose';
 
-const commerceSettingsSchema = new Schema({
+const commerceSettingsSchema = new Schema(
+  {
     status: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     serviceOptions: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
     deliveryRadius: {
-        type: String,
-        default: ''
+      type: String,
+      default: '',
     },
-}, {versionKey: false})
+  },
+  { versionKey: false },
+);
 
 export default commerceSettingsSchema;

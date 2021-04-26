@@ -165,10 +165,9 @@
  * @apiParam {String} company
  * @apiParam {String} tax_number
  * @apiParam {Object} coordinates {latitude, longtitude}
- * @apiParam {String} details 
+ * @apiParam {String} details
  * @apiSuccess {Object} status
  */
-
 
 /**
  * @api {post} /api/v1/orders/:id/items Добавить товар в заказ
@@ -185,10 +184,12 @@
  * @apiParam {String} name
  * @apiParam {String} variant_name
  * @apiParam {Number} price
+ * @apiParam {Number} stock_price
  * @apiParam {String} tax_class
  * @apiParam {Number} weight
  * @apiParam {Number} discount_total
- * @apiParam {Number} price_total  
+ * @apiParam {Number} price_total
+ * @apiParam {Number} stock_price_total
  * @apiSuccess {Object} status
  */
 
@@ -207,10 +208,12 @@
  * @apiParam {String} name
  * @apiParam {String} variant_name
  * @apiParam {Number} price
+ * @apiParam {Number} stock_price
  * @apiParam {String} tax_class
  * @apiParam {Number} weight
  * @apiParam {Number} discount_total
- * @apiParam {Number} price_total  
+ * @apiParam {Number} price_total
+ * @apiParam {Number} stock_price_total
  * @apiSuccess {Object} status
  */
 
@@ -218,7 +221,7 @@
  * @api {delete} /api/v1/orders/:id/items Удалить товар из заказа
  * @apiName deleteItem
  * @apiGroup OrdersApi
- * @apiVersion 0.1.0 
+ * @apiVersion 0.1.0
  * @apiSuccess {Object} status
  */
 
